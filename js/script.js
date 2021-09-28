@@ -84,6 +84,7 @@ function handleAction(event) {
     
 }
 
+
 // CONDIÇÃO DE VENCEDOR CONDIÇÃO DE VENCEDOR CONDIÇÃO DE VENCEDOR 
 let winnerBox = document.getElementById('win'); 
 let winmsg = document.createElement('p'); 
@@ -101,4 +102,18 @@ function winnermsg(){
 
 
 
-    
+// Reset Button
+const resetButton = document.createElement('input');
+document.body.appendChild(resetButton);
+resetButton.setAttribute('type', 'reset');
+resetButton.addEventListener('click', reset)
+
+function reset(){
+    let tower0 = document.getElementById('tower0');
+    for(let i = 0; i < 4; i++){
+    let disc = document.getElementById(`disc${i}`);
+        tower0.appendChild(disc);
+    }
+    return reset;
+}
+
