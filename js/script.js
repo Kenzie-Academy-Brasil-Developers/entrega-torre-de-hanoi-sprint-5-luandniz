@@ -1,4 +1,6 @@
 let mainContent = document.getElementById("mainContainer");
+//let towerSelect = document.getElementById("towerSelect");
+
 
 function createTowers() {
     for (let i = 0; i < 3; i++) {
@@ -47,18 +49,19 @@ function handleAction(event) {
         selectedTower = selectedTower.parentElement;
     }
 
+
     let tower = document.getElementById(`${selectedTower.id}`);
     let eleCount = tower.childElementCount;
 
     // selecionada a torre
     if (selectedTower.className === 'tower') {
 
-        if (currentState === false) {
+        if (currentState === false && eleCount !== 0) {
             selection = selectedTower;
             currentState = true;
             return;
 
-        } else if (currentState === true) {
+        } else{
             let lastKid = selection.lastElementChild;
             let lastKidWidth = lastKid.style.width;
             let lastKidNumber = parseInt(lastKidWidth, 10);
@@ -74,8 +77,28 @@ function handleAction(event) {
                 }
             }
             currentState = false;
+            winner()
             return;
         }
-
     }
+    
 }
+
+// CONDIÇÃO DE VENCEDOR CONDIÇÃO DE VENCEDOR CONDIÇÃO DE VENCEDOR 
+let winnerBox = document.getElementById('win'); 
+let winmsg = document.createElement('p'); 
+function winner (){
+    let win = document.getElementById("tower2");
+    if(win.childElementCount === 1){ 
+        win.classList.add("tower--winBackground")
+        winnermsg()
+        } 
+    }
+function winnermsg(){
+    winnerBox.appendChild(winmsg);
+    winmsg.innerText = "VOCÊ VENCEU!!"  
+    }
+
+
+
+    
