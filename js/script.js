@@ -56,6 +56,7 @@ levelD.addEventListener('click', () => setLevel(5));
 
 function setLevel(n) {
     let firstTower = document.getElementById("tower0");
+    reset(n);
     firstTower.innerHTML = '';
     discsAmount = n;
     createDisc(n);
@@ -149,10 +150,12 @@ function reset(discsAmt) {
 
     counter = 0;
     moveCounter.innerText = `Movimentos: \n ${counter}`;
-
+    
+    if(winnerBox.childElementCount > 0){
     let win = document.getElementById("tower2");
     win.classList.remove("tower--winBackground");
     winnerBox.removeChild(winmsg);
+    }
 
     return reset;
 }
