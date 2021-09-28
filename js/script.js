@@ -1,4 +1,5 @@
 let mainContent = document.getElementById("mainContainer");
+let discsAmount = 3;
 
 // Counter
 const moveCounter = document.getElementById('counter');
@@ -25,10 +26,10 @@ function createTowers() {
 createTowers()
 
 // Create Discs
-function createDisc() {
+function createDisc(n) {
     let firstTower = document.getElementById("tower0");
 
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < n; i++) {
         let wid = 100 - (i * 25);
         let disc = document.createElement("div");
         disc.classList.add("discStyle");
@@ -41,7 +42,25 @@ function createDisc() {
         firstTower.appendChild(disc);
     }
 }
-createDisc()
+createDisc(discsAmount);
+
+// Níveis de dificuldade
+let levelF = document.getElementById('btn1');
+levelF.addEventListener('click', () => setLevel(3));
+
+let levelM = document.getElementById('btn2');
+levelM.addEventListener('click', () => setLevel(4));
+
+let levelD = document.getElementById('btn3');
+levelD.addEventListener('click', () => setLevel(5));
+
+function setLevel(n) {
+    let firstTower = document.getElementById("tower0");
+    reset(n);
+    firstTower.innerHTML = '';
+    discsAmount = n;
+    createDisc(n);
+}
 
 // evento de click
 let towers = document.querySelector("main");
@@ -50,7 +69,7 @@ towers.addEventListener('click', handleAction);
 let currentState = false;
 let selection;
 
-function handleAction(event) {
+function handleAction(event, discsAmt) {
     let selectedTower = event.target;
 
     // Caso o usuário selecione algum disco, será direcionado para a torre
@@ -91,7 +110,7 @@ function handleAction(event) {
                 }
             }
             currentState = false;
-            winner()
+            winner(discsAmount);
             return currentState;
         }
     }
@@ -103,9 +122,9 @@ const buttons = document.getElementById('buttons__box');
 // CONDIÇÃO DE VENCEDOR CONDIÇÃO DE VENCEDOR CONDIÇÃO DE VENCEDOR 
 let winnerBox = document.getElementById('win');
 let winmsg = document.createElement('p');
-function winner() {
+function winner(discsAmt) {
     let win = document.getElementById("tower2");
-    if (win.childElementCount === 4) {
+    if (win.childElementCount === discsAmount) {
         win.classList.add("tower--winBackground")
         winnermsg()
     }
@@ -113,7 +132,7 @@ function winner() {
 
 function winnermsg() {
     winnerBox.appendChild(winmsg);
-    winmsg.innerText = "VOCÊ VENCEU!!"
+    winmsg.innerText = "VOCÊ VENCEU!!";
 }
 
 // Reset Button
@@ -122,19 +141,21 @@ buttons.appendChild(resetButton);
 resetButton.setAttribute('type', 'reset');
 resetButton.addEventListener('click', reset);
 
-function reset() {
+function reset(discsAmt) {
     let tower0 = document.getElementById('tower0');
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < discsAmount; i++) {
         let disc = document.getElementById(`disc${i}`);
         tower0.appendChild(disc);
     }
 
     counter = 0;
     moveCounter.innerText = `Movimentos: \n ${counter}`;
-
+    
+    if(winnerBox.childElementCount > 0){
     let win = document.getElementById("tower2");
     win.classList.remove("tower--winBackground");
     winnerBox.removeChild(winmsg);
+    }
 
-    return reset
+    return reset;
 }
