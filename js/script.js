@@ -1,4 +1,6 @@
 let mainContent = document.getElementById("mainContainer");
+//let towerSelect = document.getElementById("towerSelect");
+
 
 // Counter
 const moveCounter = document.getElementById('counter');
@@ -59,17 +61,19 @@ function handleAction(event) {
         selectedTower = selectedTower.parentElement;
     }
 
+
     let tower = document.getElementById(`${selectedTower.id}`);
     let eleCount = tower.childElementCount;
 
     // selecionada a torre
     if (selectedTower.className === 'tower') {
 
+
         if (currentState === false) {
             if (eleCount !== 0) {
                 selection = selectedTower;
                 currentState = true;
-                console.log('click1')
+            
                 return currentState;
             }
 
@@ -92,14 +96,36 @@ function handleAction(event) {
                 }
             }
             currentState = false;
-            console.log('click2')
+
+            winner()
             return currentState;
+            
+           
+
         }
     }
+    
 }
 
 // Div with buttons
 const buttons = document.getElementById('buttons__box');
+
+// CONDIÇÃO DE VENCEDOR CONDIÇÃO DE VENCEDOR CONDIÇÃO DE VENCEDOR 
+let winnerBox = document.getElementById('win'); 
+let winmsg = document.createElement('p'); 
+function winner (){
+    let win = document.getElementById("tower2");
+    if(win.childElementCount === 1){ 
+        win.classList.add("tower--winBackground")
+        winnermsg()
+        } 
+    }
+function winnermsg(){
+    winnerBox.appendChild(winmsg);
+    winmsg.innerText = "VOCÊ VENCEU!!"  
+    }
+
+
 
 // Reset Button
 const resetButton = document.createElement('input');
@@ -118,3 +144,4 @@ function reset() {
 
     return reset;
 }
+

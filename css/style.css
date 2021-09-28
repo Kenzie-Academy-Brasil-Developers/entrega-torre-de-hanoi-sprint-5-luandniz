@@ -22,6 +22,7 @@
     border-radius: 4px;
 }
 
+
 #counter{
     border: 1px solid black;
     height: 35px;
@@ -29,4 +30,23 @@
     padding: 5px;
     text-align: center;
     width: 110px;
+
+.tower--winBackground{
+    background-color: #7cfc00;
+}
+
+.pageBotton{
+    width: 90vw;
+    margin: 30px auto 10px;
+    text-align: center;
+    display: flex;   
+}
+.pageBottom__msg{
+    margin-bottom: 30px;
+    color: #ffffff;
+    background-color: #19445e;
+    font-weight: 600;
+    width: 30vh;
+    border-radius: 5px;
+
 }
