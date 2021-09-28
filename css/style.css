@@ -1,27 +1,33 @@
+#info-butons{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 70vw;
+}
 
 .tower{
-
+    align-items: center;
     display: flex;
     flex-direction: column-reverse;
-    align-items: center;
    
     border: 1px solid black;
-    width: 70vw;
     height: 140px;
     margin: 10px 0;
     padding: 5px 0;
+    width: 70vw;
 
 }
 
 .discStyle{
     background-color: #000000;
-    margin: 1px 0;
-    padding: 10px 25px;
-    max-width: 500px;
     border: 1px solid rgb(121, 121, 121);
     border-radius: 4px;
+    margin: 1px 0;
+    max-width: 500px;
+    padding: 10px 25px;
 }
-
 
 #counter{
     border: 1px solid black;
@@ -30,23 +36,24 @@
     padding: 5px;
     text-align: center;
     width: 110px;
+}
 
 .tower--winBackground{
     background-color: #7cfc00;
 }
 
 .pageBotton{
-    width: 90vw;
+    display: flex;   
     margin: 30px auto 10px;
     text-align: center;
-    display: flex;   
+    width: 90vw;
 }
-.pageBottom__msg{
-    margin-bottom: 30px;
-    color: #ffffff;
-    background-color: #19445e;
-    font-weight: 600;
-    width: 30vh;
-    border-radius: 5px;
 
+.pageBottom__msg{
+    background-color: #19445e;
+    border-radius: 5px;
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 30px;
+    width: 30vh;
 }

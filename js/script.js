@@ -1,6 +1,4 @@
 let mainContent = document.getElementById("mainContainer");
-//let towerSelect = document.getElementById("towerSelect");
-
 
 // Counter
 const moveCounter = document.getElementById('counter');
@@ -45,7 +43,6 @@ function createDisc() {
 }
 createDisc()
 
-
 // evento de click
 let towers = document.querySelector("main");
 towers.addEventListener('click', handleAction);
@@ -61,19 +58,17 @@ function handleAction(event) {
         selectedTower = selectedTower.parentElement;
     }
 
-
     let tower = document.getElementById(`${selectedTower.id}`);
-    let eleCount = tower.childElementCount;
+    let elementCount = tower.childElementCount;
 
     // selecionada a torre
     if (selectedTower.className === 'tower') {
 
-
         if (currentState === false) {
-            if (eleCount !== 0) {
+            if (elementCount !== 0) {
                 selection = selectedTower;
                 currentState = true;
-            
+
                 return currentState;
             }
 
@@ -82,50 +77,44 @@ function handleAction(event) {
             let lastKidWidth = lastKid.style.width;
             let lastKidNumber = parseInt(lastKidWidth, 10);
 
-            if (eleCount === 0) {
+            if (elementCount === 0) {
                 tower.appendChild(lastKid);
                 addCounter();
 
             } else {
-                let eleWidth = selectedTower.lastElementChild.style.width;
-                let eleNumber = parseInt(eleWidth, 10);
+                let elementWidth = selectedTower.lastElementChild.style.width;
+                let elementNumber = parseInt(elementWidth, 10);
 
-                if (lastKidNumber < eleNumber) {
+                if (lastKidNumber < elementNumber) {
                     tower.appendChild(lastKid);
                     addCounter();
                 }
             }
             currentState = false;
-
             winner()
             return currentState;
-            
-           
-
         }
     }
-    
 }
 
 // Div with buttons
 const buttons = document.getElementById('buttons__box');
 
 // CONDIÇÃO DE VENCEDOR CONDIÇÃO DE VENCEDOR CONDIÇÃO DE VENCEDOR 
-let winnerBox = document.getElementById('win'); 
-let winmsg = document.createElement('p'); 
-function winner (){
+let winnerBox = document.getElementById('win');
+let winmsg = document.createElement('p');
+function winner() {
     let win = document.getElementById("tower2");
-    if(win.childElementCount === 1){ 
+    if (win.childElementCount === 4) {
         win.classList.add("tower--winBackground")
         winnermsg()
-        } 
     }
-function winnermsg(){
+}
+
+function winnermsg() {
     winnerBox.appendChild(winmsg);
-    winmsg.innerText = "VOCÊ VENCEU!!"  
-    }
-
-
+    winmsg.innerText = "VOCÊ VENCEU!!"
+}
 
 // Reset Button
 const resetButton = document.createElement('input');
@@ -139,9 +128,13 @@ function reset() {
         let disc = document.getElementById(`disc${i}`);
         tower0.appendChild(disc);
     }
+
     counter = 0;
     moveCounter.innerText = `Movimentos: \n ${counter}`;
 
-    return reset;
-}
+    let win = document.getElementById("tower2");
+    win.classList.remove("tower--winBackground");
+    winnerBox.removeChild(winmsg);
 
+    return reset
+}
