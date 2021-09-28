@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,18 +8,38 @@
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
 
-    <title>Document</title>
+    <!-- GOOGLE FONTS -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+
+    <title>Torre de Hanoi</title>
 </head>
+
 <body>
-    
-    <header>
-        <h1>Torre de Hanoi</h1>
+
+    <header class="pageTop">
+        <img src="./imagens/mobile-removebg-preview.png" alt="" class="pageTop__image">
     </header>
 
-    <main id="mainContainer" class="content">
+    <div id="info-butons">
+        <div id="counter"></div>
+        <section id="buttons__box">
+            <button id="btn1">Fácil</button>
+            <button id="btn2">Médio</button>
+            <button id="btn3">Difícil</button>
+        </section>
+    </div>
 
+    <main id="mainContainer" class="content">
     </main>
+
+    <footer class="pageBotton">
+        <div class="pageBottom__msg" id="win"></div>
+    </footer>
 
     <script src="./js/script.js"></script>
 </body>
+
 </html>
