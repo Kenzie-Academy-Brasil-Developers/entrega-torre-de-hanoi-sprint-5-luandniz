@@ -37,16 +37,18 @@ createDisc()
 // evento de click evento de click evento de click evento de click 
 let towers = document.querySelector("main");
 towers.addEventListener('click', handleAction);
+
 let currentState = false;
 let selection;
 
 function handleAction(event) {
     let selectedTower = event.target;
-  
+
     // Caso o usuário selecione algum disco, será direcionado para a torre
     if (selectedTower.className === 'discStyle') {
         selectedTower = selectedTower.parentElement;
     }
+
 
     let tower = document.getElementById(`${selectedTower.id}`);
     let eleCount = tower.childElementCount;
@@ -99,3 +101,4 @@ function winnermsg(){
 
 
 
+    
