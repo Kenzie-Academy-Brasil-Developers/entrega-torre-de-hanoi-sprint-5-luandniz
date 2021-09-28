@@ -21,3 +21,12 @@
     border: 1px solid rgb(121, 121, 121);
     border-radius: 4px;
 }
+
+#counter{
+    border: 1px solid black;
+    height: 35px;
+    line-height: 1.25rem;
+    padding: 5px;
+    text-align: center;
+    width: 110px;
+}
