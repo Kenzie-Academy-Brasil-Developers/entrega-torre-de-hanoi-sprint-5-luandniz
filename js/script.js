@@ -2,6 +2,17 @@ let mainContent = document.getElementById("mainContainer");
 //let towerSelect = document.getElementById("towerSelect");
 
 
+// Counter
+const moveCounter = document.getElementById('counter');
+let counter = 0;
+moveCounter.innerText = `Movimentos: \n ${counter}`;
+
+function addCounter() {
+    counter++
+    moveCounter.innerText = `Movimentos: \n ${counter}`;
+}
+
+// Create Towers
 function createTowers() {
     for (let i = 0; i < 3; i++) {
         let tower = document.createElement("div");
@@ -15,6 +26,7 @@ function createTowers() {
 }
 createTowers()
 
+// Create Discs
 function createDisc() {
     let firstTower = document.getElementById("tower0");
 
@@ -34,7 +46,7 @@ function createDisc() {
 createDisc()
 
 
-// evento de click evento de click evento de click evento de click 
+// evento de click
 let towers = document.querySelector("main");
 towers.addEventListener('click', handleAction);
 
@@ -56,34 +68,47 @@ function handleAction(event) {
     // selecionada a torre
     if (selectedTower.className === 'tower') {
 
-        if (currentState === false && eleCount !== 0) {
-            selection = selectedTower;
-            currentState = true;
-            return;
 
-        } else{
+        if (currentState === false) {
+            if (eleCount !== 0) {
+                selection = selectedTower;
+                currentState = true;
+            
+                return currentState;
+            }
+
+        } else {
             let lastKid = selection.lastElementChild;
             let lastKidWidth = lastKid.style.width;
             let lastKidNumber = parseInt(lastKidWidth, 10);
 
             if (eleCount === 0) {
                 tower.appendChild(lastKid);
-            } if (eleCount > 0) {
+                addCounter();
+
+            } else {
                 let eleWidth = selectedTower.lastElementChild.style.width;
                 let eleNumber = parseInt(eleWidth, 10);
 
                 if (lastKidNumber < eleNumber) {
                     tower.appendChild(lastKid);
+                    addCounter();
                 }
             }
             currentState = false;
+
             winner()
-            return;
+            return currentState;
+            
+           
+
         }
     }
     
 }
 
+// Div with buttons
+const buttons = document.getElementById('buttons__box');
 
 // CONDIÇÃO DE VENCEDOR CONDIÇÃO DE VENCEDOR CONDIÇÃO DE VENCEDOR 
 let winnerBox = document.getElementById('win'); 
@@ -104,16 +129,19 @@ function winnermsg(){
 
 // Reset Button
 const resetButton = document.createElement('input');
-document.body.appendChild(resetButton);
+buttons.appendChild(resetButton);
 resetButton.setAttribute('type', 'reset');
-resetButton.addEventListener('click', reset)
+resetButton.addEventListener('click', reset);
 
-function reset(){
+function reset() {
     let tower0 = document.getElementById('tower0');
-    for(let i = 0; i < 4; i++){
-    let disc = document.getElementById(`disc${i}`);
+    for (let i = 0; i < 4; i++) {
+        let disc = document.getElementById(`disc${i}`);
         tower0.appendChild(disc);
     }
+    counter = 0;
+    moveCounter.innerText = `Movimentos: \n ${counter}`;
+
     return reset;
 }
 

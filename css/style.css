@@ -22,6 +22,15 @@
     border-radius: 4px;
 }
 
+
+#counter{
+    border: 1px solid black;
+    height: 35px;
+    line-height: 1.25rem;
+    padding: 5px;
+    text-align: center;
+    width: 110px;
+
 .tower--winBackground{
     background-color: #7cfc00;
 }
@@ -39,4 +48,5 @@
     font-weight: 600;
     width: 30vh;
     border-radius: 5px;
+
 }
