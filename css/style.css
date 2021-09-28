@@ -21,3 +21,22 @@
     border: 1px solid rgb(121, 121, 121);
     border-radius: 4px;
 }
+
+.tower--winBackground{
+    background-color: #7cfc00;
+}
+
+.pageBotton{
+    width: 90vw;
+    margin: 30px auto 10px;
+    text-align: center;
+    display: flex;   
+}
+.pageBottom__msg{
+    margin-bottom: 30px;
+    color: #ffffff;
+    background-color: #19445e;
+    font-weight: 600;
+    width: 30vh;
+    border-radius: 5px;
+}
