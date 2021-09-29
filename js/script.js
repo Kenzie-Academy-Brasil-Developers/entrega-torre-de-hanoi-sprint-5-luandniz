@@ -54,19 +54,6 @@ levelM.addEventListener('click', () => setLevel(4));
 let levelD = document.getElementById('btn3');
 levelD.addEventListener('click', () => setLevel(5));
 
-
-
-// Níveis de dificuldade
-let levelF = document.getElementById('btn1');
-levelF.addEventListener('click', () => setLevel(3));
-
-let levelM = document.getElementById('btn2');
-levelM.addEventListener('click', () => setLevel(4));
-
-let levelD = document.getElementById('btn3');
-levelD.addEventListener('click', () => setLevel(5));
-
-
 function setLevel(n) {
     let firstTower = document.getElementById("tower0");
     reset(n);
@@ -101,12 +88,6 @@ function handleAction(event, discsAmt) {
                 selection = selectedTower;
                 currentState = true;
 
-
-                return currentState;
-            }
-
-
-
                 return currentState;
             }
 
@@ -119,17 +100,9 @@ function handleAction(event, discsAmt) {
                 tower.appendChild(lastKid);
                 addCounter();
 
-
             } else {
                 let elementWidth = selectedTower.lastElementChild.style.width;
                 let elementNumber = parseInt(elementWidth, 10);
-
-
-
-            } else {
-                let elementWidth = selectedTower.lastElementChild.style.width;
-                let elementNumber = parseInt(elementWidth, 10);
-
 
                 if (lastKidNumber < elementNumber) {
                     tower.appendChild(lastKid);
@@ -170,12 +143,6 @@ resetButton.classList.add("reset")
 resetButton.setAttribute('type', 'reset');
 resetButton.addEventListener('click', reset);
 
-
-
-resetButton.setAttribute('type', 'reset');
-resetButton.addEventListener('click', reset);
-
-
 function reset(discsAmt) {
     let tower0 = document.getElementById('tower0');
     for (let i = 0; i < discsAmount; i++) {
@@ -185,11 +152,11 @@ function reset(discsAmt) {
 
     counter = 0;
     moveCounter.innerText = `Movimentos: \n ${counter}`;
-    
-    if(winnerBox.childElementCount > 0){
-    let win = document.getElementById("tower2");
-    win.classList.remove("tower--winBackground");
-    winnerBox.removeChild(winmsg);
+
+    if (winnerBox.childElementCount > 0) {
+        let win = document.getElementById("tower2");
+        win.classList.remove("tower--winBackground");
+        winnerBox.removeChild(winmsg);
     }
 
     return reset;
