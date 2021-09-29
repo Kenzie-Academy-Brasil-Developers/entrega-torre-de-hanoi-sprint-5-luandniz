@@ -91,23 +91,26 @@
 }
 
 .tower--winBackground{
-    background-color: #7cfc00;
+    background-color: #6d106d;
 }
 
 .pageBotton{
     display: flex;   
-    margin: 30px auto 10px;
+    justify-content: center;
     text-align: center;
-    width: 90vw;
+    margin-top: 30px;
+    
 }
 
 .pageBottom__msg{
-    background-color: #19445e;
-    border-radius: 5px;
-    color: #ffffff;
-    font-weight: 600;
-    margin-bottom: 30px;
-    width: 30vh;
+    background-color: #6d106d;
+    border-radius: 4px;
+    color: #32dedf;
+    font-family: 'Staatliches', cursive;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    width: 20vw;
 }
   
 @media screen and (min-width: 768px){
@@ -122,12 +125,8 @@
     .tower{
         height: 30vh;
         margin: 5px;
-    }
-    .pageBottom__msg{
-        width: 50vh;
-    }
-    .tower{
         width: 20vw;
+
     }
     #btn1, #btn2, #btn3, .reset, #counter{ 
         padding: 10px 20px;  
