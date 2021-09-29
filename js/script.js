@@ -88,7 +88,7 @@ function handleAction(event, discsAmt) {
                 return currentState;
             }
 
-        } else {
+        } else if (currentState === true) {
             let lastKid = selection.lastElementChild;
             let lastKidWidth = lastKid.style.width;
             let lastKidNumber = parseInt(lastKidWidth, 10);
