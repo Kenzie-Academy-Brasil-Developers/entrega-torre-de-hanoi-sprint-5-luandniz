@@ -40,7 +40,7 @@
     border-radius: 4px;
     padding: 10px 10px;
     letter-spacing: 2px;
-    margin-top: 30px;
+    margin-top: 20px;
     border: 2px solid #6d106d;
     color: #32dedf;
     cursor: pointer;
@@ -91,23 +91,26 @@
 }
 
 .tower--winBackground{
-    background-color: #7cfc00;
+    background-color: #6d106d;
 }
 
 .pageBotton{
     display: flex;   
-    margin: 30px auto 10px;
+    justify-content: center;
     text-align: center;
-    width: 90vw;
+    margin-top: 30px;
+    
 }
 
 .pageBottom__msg{
-    background-color: #19445e;
-    border-radius: 5px;
-    color: #ffffff;
-    font-weight: 600;
-    margin-bottom: 30px;
-    width: 30vh;
+    background-color: #6d106d;
+    letter-spacing: 2px;
+    border-radius: 4px;
+    font-size: 20px;
+    width: 20vw;
+    color: #32dedf;
+    font-weight: bold;
+    font-family: 'Staatliches', cursive;
 }
   
 @media screen and (min-width: 768px){
@@ -122,9 +125,6 @@
     .tower{
         margin: 5px;
         height: 30vh;
-    }
-    .pageBottom__msg{
-        width: 50vh;
     }
     .tower{
         width: 20vw;
