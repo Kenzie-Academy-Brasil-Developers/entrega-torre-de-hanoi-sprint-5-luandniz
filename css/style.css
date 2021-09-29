@@ -4,9 +4,9 @@
 }
 
 .pageTop{
+    align-items: center;
     display: flex;
     justify-content: center;
-    align-items: center;
     margin-top: 20px;
 }
 
@@ -15,12 +15,12 @@
 }
 
 .content{
-    width: 95vw;
-    margin: 0 auto;
+    align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: center;
+    margin: 0 auto;
+    width: 95vw;
 }
 
 #info-butons{
@@ -37,30 +37,30 @@
 }
 
 #btn1, #btn2, #btn3, .reset, #counter{ 
-    border-radius: 4px;
-    padding: 10px 10px;
-    letter-spacing: 2px;
-    margin-top: 30px;
+    background-color: black;   
     border: 2px solid #6d106d;
+    border-radius: 4px;
     color: #32dedf;
     cursor: pointer;
-    background-color: black;   
     font-family: 'Staatliches', cursive;
+    letter-spacing: 2px;
+    margin-top: 30px;
+    padding: 10px 10px;
 }
 
 #btn1:hover, #btn2:hover, #btn3:hover, .reset:hover, #counter:hover{
-    color: black;
     background-color: #32dedf; 
+    color: black;
     transition: ease all 0.6s;
 }
 
 .tower{
     align-items: center;
-    display: flex;
     background-color: #191919;
-    flex-direction: column-reverse;
-    cursor: pointer;
     border: 4px solid #32dedf;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column-reverse;
     height: 140px;
     margin: 10px 0;
     padding: 5px 0;
@@ -120,8 +120,8 @@
         width: 80vw;
     }
     .tower{
-        margin: 5px;
         height: 30vh;
+        margin: 5px;
     }
     .pageBottom__msg{
         width: 50vh;

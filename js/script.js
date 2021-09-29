@@ -1,7 +1,7 @@
 let mainContent = document.getElementById("mainContainer");
 let discsAmount = 3;
 
-// Counter
+//  CONTADOR
 const moveCounter = document.getElementById('counter');
 let counter = 0;
 moveCounter.innerText = `Movimentos: \n ${counter}`;
@@ -11,21 +11,20 @@ function addCounter() {
     moveCounter.innerText = `Movimentos: \n ${counter}`;
 }
 
-// Create Towers
+// CRIAR TORRES
 function createTowers() {
     for (let i = 0; i < 3; i++) {
         let tower = document.createElement("div");
         tower.classList.add("tower");
-        //classe para estilizar a tower --> .tower
         tower.id = "tower" + i;
-        // o id da torre é tower+índice
-        // tower0, tower1,tower2 (para handler de click)       
         mainContent.appendChild(tower);
     }
 }
-createTowers()
 
-// Create Discs
+const creatingTowers = createTowers();
+creatingTowers;
+
+// CRIAR DISCOS
 function createDisc(n) {
     let firstTower = document.getElementById("tower0");
 
@@ -33,18 +32,16 @@ function createDisc(n) {
         let wid = 100 - (i * 25);
         let disc = document.createElement("div");
         disc.classList.add("discStyle");
-        //classe para estilizar os discos --> .discStyle
         disc.id = "disc" + i;
-        // o id de disc é disc+índice
-        // disc0, disc1, disc2 
-
         disc.style.width = `${wid}px`;
         firstTower.appendChild(disc);
     }
 }
-createDisc(discsAmount);
 
-// Níveis de dificuldade
+const creatingDiscs = createDisc(discsAmount);
+creatingDiscs;
+
+// NÍVEIS DE DIFICULDADE
 let levelF = document.getElementById('btn1');
 levelF.addEventListener('click', () => setLevel(3));
 
@@ -62,7 +59,7 @@ function setLevel(n) {
     createDisc(n);
 }
 
-// evento de click
+// EVENTO DE CLICK - MOVER DISCOS DE TORRES
 let towers = document.querySelector("main");
 towers.addEventListener('click', handleAction);
 
@@ -116,17 +113,14 @@ function handleAction(event, discsAmt) {
     }
 }
 
-// Div with buttons
-const buttons = document.getElementById('buttons__box');
-
-// CONDIÇÃO DE VENCEDOR CONDIÇÃO DE VENCEDOR CONDIÇÃO DE VENCEDOR 
+// CONDIÇÃO DE VENCEDOR 
 let winnerBox = document.getElementById('win');
 let winmsg = document.createElement('p');
 function winner(discsAmt) {
     let win = document.getElementById("tower2");
     if (win.childElementCount === discsAmount) {
-        win.classList.add("tower--winBackground")
-        winnermsg()
+        win.classList.add("tower--winBackground");
+        winnermsg();
     }
 }
 
@@ -135,11 +129,12 @@ function winnermsg() {
     winmsg.innerText = "VOCÊ VENCEU!!";
 }
 
-// Reset Button
+// RESET BUTTON
+const buttons = document.getElementById('buttons__box');
 const resetButton = document.createElement('input');
 buttons.appendChild(resetButton);
 
-resetButton.classList.add("reset")
+resetButton.classList.add("reset");
 resetButton.setAttribute('type', 'reset');
 resetButton.addEventListener('click', reset);
 
